@@ -266,11 +266,8 @@ def get_moon():
         moon.to_dict()
     )
 
-if __name__ == "__main__":
-
-
- @app.route("/api/polymorphism")
- def polymorphism_demo():
+@app.route("/api/polymorphism")
+def polymorphism_demo():
 
     planet = Planet(
         "Earth",
@@ -309,8 +306,8 @@ if __name__ == "__main__":
 # COMPARE TWO PLANETS
 # --------------------------------
 
- @app.route("/api/compare")
- def compare_planets():
+@app.route("/api/compare")
+def compare_planets():
 
     planet1_name = request.args.get(
         "planet1"
