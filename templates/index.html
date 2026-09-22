@@ -1,0 +1,2384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ILM-AL-KAWN | Explore the Universe</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            ILM-AL-KAWN
+        </div>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#solar-system">Solar System</a>
+            <a href="#sun">Sun</a>
+            <a href="#moon">Moon</a>
+            <a href="#python">Python Lab</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Hero Section -->
+
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+
+            <p class="arabic-title">
+                علم الكون
+            </p>
+
+            <h1>
+                ILM-AL-KAWN
+            </h1>
+
+            <h2>
+                Explore the Universe
+            </h2>
+
+            <p>
+                Discover the Sun, Moon, planets and the fascinating
+                science behind our universe.
+            </p>
+
+            <button onclick="scrollToSolarSystem()">
+                EXPLORE SOLAR SYSTEM
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- Solar System -->
+
+    <section id="solar-system" class="section">
+
+        <div class="section-heading">
+
+            <p class="small-title">
+                OUR COSMIC NEIGHBOURHOOD
+            </p>
+
+            <h2>
+                The Solar System
+            </h2>
+
+            <p>
+                Explore the planets that orbit our Sun.
+            </p>
+
+        </div>
+
+       <div class="planet-search">
+
+    <input
+        type="text"
+        id="planet-search-input"
+        placeholder="🔎 Search for a planet..."
+        oninput="searchPlanets()"
+    >
+
+    </div>
+
+        <div class="solar-system">
+
+    <div class="sun">
+
+        ☀️
+
+        <span>
+            Sun
+        </span>
+
+    </div>
+
+    <div id="planet-container"></div>
+
+</div>
+
+    <div id="planet-info" class="planet-info">
+
+    <h2>Select a Planet</h2>
+
+    <p>
+        Click on a planet to explore its information.
+    </p>
+
+</div>
+
+    </section>
+
+
+    <!-- Sun -->
+
+    <section id="sun" class="info-section">
+
+        <div>
+
+            <p class="small-title">
+                THE STAR AT OUR CENTRE
+            </p>
+
+            <h2>
+                ☀️ The Sun
+            </h2>
+
+            <p>
+                The Sun is the star at the centre of our Solar System.
+                Its enormous gravitational influence keeps the planets
+                in their orbits.
+            </p>
+
+            <button onclick="exploreSun()">
+    Explore the Sun
+</button>
+
+        </div>
+
+    </section>
+
+
+    <!-- Moon -->
+
+    <section id="moon" class="info-section moon-section">
+
+        <div>
+
+            <p class="small-title">
+                EARTH'S NATURAL SATELLITE
+            </p>
+
+            <h2>
+                🌙 The Moon
+            </h2>
+
+            <p>
+                The Moon is Earth's natural satellite. Its changing
+                appearance throughout the month is called the lunar phase cycle.
+            </p>
+
+            <button onclick="exploreMoon()">
+    Explore the Moon
+</button>
+
+        </div>
+
+    </section>
+
+<!-- ==========================================
+     PLANET COMPARISON
+     ========================================== -->
+
+<section id="comparison" class="comparison-section">
+
+    <p class="small-title">
+        PLANET COMPARISON
+    </p>
+
+    <h2>
+        🌍 Compare Two Planets
+    </h2>
+
+    <p>
+        Select two planets and explore
+        how they are different.
+    </p>
+
+
+    <div class="comparison-selectors">
+
+        <div class="comparison-select">
+
+            <label for="planet1-select">
+                First Planet
+            </label>
+
+            <select id="planet1-select">
+
+                <option value="">
+                    Select Planet
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="comparison-select">
+
+            <label for="planet2-select">
+                Second Planet
+            </label>
+
+            <select id="planet2-select">
+
+                <option value="">
+                    Select Planet
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+
+    <button
+        type="button"
+        onclick="comparePlanets()"
+    >
+        Compare Planets
+    </button>
+
+
+    <div
+        id="comparison-result"
+        class="comparison-result"
+    >
+
+        <p>
+            Select two planets to begin
+            the comparison.
+        </p>
+
+    </div>
+
+</section>
+
+    <!-- Python Lab -->
+
+    <section id="python" class="python-section">
+
+        <div class="section-heading">
+
+            <p class="small-title">
+                POWERED BY PYTHON
+            </p>
+
+            <h2>
+                🐍 Python Lab
+            </h2>
+
+            <p>
+                Discover how Python can help us explore and calculate
+                properties of celestial objects.
+            </p>
+
+        </div>
+
+
+        <div class="python-card">
+
+            <h3>
+                Your Weight on Different Worlds
+            </h3>
+
+            <p>
+                Enter your Earth weight:
+            </p>
+
+            <input
+                type="number"
+                id="weight"
+                placeholder="Example: 60"
+            >
+
+            <button onclick="calculateWeight()">
+                Calculate
+            </button>
+
+            <div id="result"></div>
+
+        </div>
+
+        <div class="python-card">
+
+    <h3>
+        🧱 Python OOP Explorer
+    </h3>
+
+    <p>
+        Select a planet to explore its
+        Python object properties.
+    </p>
+
+
+    <select id="oop-planet-select">
+
+        <option value="">
+            Select a Planet
+        </option>
+
+    </select>
+
+
+    <button
+        type="button"
+        onclick="explorePythonObject()"
+    >
+        Explore Object
+    </button>
+
+
+    <div
+        id="oop-result"
+        class="oop-result"
+    >
+
+        <p>
+            Select a planet to begin.
+        </p>
+
+    </div>
+
+</div>
+
+<div class="python-card">
+
+    <h3>🧬 Python Polymorphism Explorer</h3>
+
+    <p>
+        See how the same method can behave differently
+        for different Python objects.
+    </p>
+
+    <button
+        type="button"
+        onclick="explorePolymorphism()"
+    >
+        Explore Polymorphism
+    </button>
+
+    <div
+        id="polymorphism-result"
+        class="oop-result"
+    >
+        <p>
+            Click the button to explore polymorphism.
+        </p>
+    </div>
+
+</div>
+
+<div class="python-card">
+
+    <h3>
+        🧩 Python Abstraction Explorer
+    </h3>
+
+    <p>
+        Understand how an abstract class defines
+        rules for its child classes.
+    </p>
+
+    <button
+        type="button"
+        onclick="exploreAbstraction()"
+    >
+        Explore Abstraction
+    </button>
+
+    <div
+        id="abstraction-result"
+        class="oop-result"
+    >
+        <p>
+            Click the button to explore abstraction.
+        </p>
+    </div>
+
+</div>
+
+<div class="python-card">
+
+    <h3>
+        🚀 Orbital Speed Explorer
+    </h3>
+
+    <p>
+        Discover how fast each planet travels
+        around the Sun.
+    </p>
+
+    <select id="orbital-planet-select">
+
+        <option value="">
+            Select a Planet
+        </option>
+
+    </select>
+
+    <button
+        type="button"
+        onclick="calculateOrbitalSpeed()"
+    >
+        Calculate Orbital Speed
+    </button>
+
+    <div
+        id="orbital-speed-result"
+        class="oop-result"
+    >
+
+        <p>
+            Select a planet to begin.
+        </p>
+
+    </div>
+
+</div>
+
+    </section>
+
+
+    <script>
+
+console.log("ILM-AL-KAWN INLINE JAVASCRIPT STARTED");
+
+
+async function loadPlanets() {
+
+    console.log("Loading planets...");
+
+
+    const container =
+        document.getElementById("planet-container");
+
+
+    if (!container) {
+
+        console.error("Container NOT found!");
+
+        return;
+
+    }
+
+
+    try {
+
+        const response =
+            await fetch("/api/planets");
+
+
+        console.log(
+            "API Status:",
+            response.status
+        );
+
+
+        const planets =
+            await response.json();
+
+        populatePlanetSelectors(planets);
+
+        populateOOPSelector(planets);
+
+        populateOrbitalPlanetSelector(planets);
+
+
+
+        console.log(
+            "Received planets:",
+            planets
+        );
+
+
+        container.innerHTML = "";
+
+
+        planets.forEach(function(planet) {
+
+            console.log(
+                "Creating planet:",
+                planet.name
+            );
+
+
+            const planetElement =
+                document.createElement("div");
+
+
+            planetElement.className =
+                "planet dynamic-planet";
+
+
+            let icon = "🪐";
+
+
+            if (planet.name === "Mercury")
+                icon = "☿";
+
+            if (planet.name === "Venus")
+                icon = "♀";
+
+            if (planet.name === "Earth")
+                icon = "🌍";
+
+            if (planet.name === "Mars")
+                icon = "♂";
+
+            if (planet.name === "Jupiter")
+                icon = "♃";
+
+            if (planet.name === "Saturn")
+                icon = "♄";
+
+            if (planet.name === "Uranus")
+                icon = "♅";
+
+            if (planet.name === "Neptune")
+                icon = "♆";
+
+
+            planetElement.innerHTML = `
+
+                <div class="planet-icon">
+                    ${icon}
+                </div>
+
+                <span>
+                    ${planet.name}
+                </span>
+
+            `;
+
+
+            planetElement.onclick = function() {
+
+            showPlanet(planet);
+
+            };
+
+
+            container.appendChild(
+                planetElement
+            );
+
+        });
+
+
+        console.log(
+            "PLANETS SUCCESSFULLY DISPLAYED"
+        );
+
+    }
+
+
+    catch(error) {
+
+        console.error(
+            "Planet loading error:",
+            error
+        );
+
+    }
+
+}
+
+
+function showPlanet(planet) {
+
+    console.log(
+        "Planet clicked:",
+        planet.name
+    );
+
+
+    const info =
+        document.getElementById(
+            "planet-info"
+        );
+
+
+    if (!info) {
+
+        console.error(
+            "planet-info element not found!"
+        );
+
+        return;
+
+    }
+
+
+    info.innerHTML = `
+
+        <p class="small-title">
+            PLANET EXPLORER
+        </p>
+
+
+        <h2>
+            ${planet.name}
+        </h2>
+
+
+        <p class="planet-description">
+            ${planet.description}
+        </p>
+
+
+        <div class="facts">
+
+
+            <div class="fact">
+
+                <strong>
+                    Gravity
+                </strong>
+
+                <span>
+                    ${planet.gravity} m/s²
+                </span>
+
+            </div>
+
+
+            <div class="fact">
+
+                <strong>
+                    Distance from Sun
+                </strong>
+
+                <span>
+                    ${planet.distance_from_sun}
+                    million km
+                </span>
+
+            </div>
+
+
+            <div class="fact">
+
+                <strong>
+                    Moons
+                </strong>
+
+                <span>
+                    ${planet.moons}
+                </span>
+
+            </div>
+
+
+                        <div class="fact">
+
+                <strong>
+                    Mass
+                </strong>
+
+                <span>
+                    ${Number(planet.mass)
+                        .toExponential(3)}
+                    kg
+                </span>
+
+            </div>
+
+
+            <div class="fact">
+
+                <strong>
+                    Gravity Ratio
+                </strong>
+
+                <span>
+                    ${planet.gravity_ratio} × Earth
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- WEIGHT CALCULATOR -->
+
+        <div class="weight-calculator">
+
+            <h3>
+                ⚖️ Your Weight on ${planet.name}
+            </h3>
+
+
+            <p>
+                Enter your weight on Earth
+                to calculate your weight
+                on ${planet.name}.
+            </p>
+
+
+            <input
+                type="number"
+                id="planet-weight-input"
+                placeholder="Example: 60"
+                min="0"
+                step="0.1"
+            >
+
+
+            <button
+                type="button"
+                onclick="calculatePlanetWeight('${planet.name}')"
+            >
+                Calculate
+            </button>
+
+
+            <div
+                id="planet-weight-result"
+                class="weight-result"
+            ></div>
+
+        </div>
+
+    `;
+
+
+    info.scrollIntoView({
+
+        behavior: "smooth",
+
+        block: "center"
+
+    });
+
+}
+
+async function calculatePlanetWeight(
+    planetName
+) {
+
+    const input =
+        document.getElementById(
+            "planet-weight-input"
+        );
+
+
+    const result =
+        document.getElementById(
+            "planet-weight-result"
+        );
+
+
+    const earthWeight =
+        parseFloat(input.value);
+
+
+    if (
+        isNaN(earthWeight) ||
+        earthWeight <= 0
+    ) {
+
+        result.innerHTML = `
+            Please enter a valid weight.
+        `;
+
+        return;
+
+    }
+
+
+    result.innerHTML = `
+        Calculating...
+    `;
+
+
+    try {
+
+        const response =
+            await fetch(
+                "/api/calculate-weight",
+                {
+
+                    method: "POST",
+
+                    headers: {
+
+                        "Content-Type":
+                            "application/json"
+
+                    },
+
+                    body: JSON.stringify({
+
+                        weight:
+                            earthWeight,
+
+                        planet:
+                            planetName
+
+                    })
+
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            result.innerHTML =
+                data.error ||
+                "Calculation failed.";
+
+            return;
+
+        }
+
+
+        result.innerHTML = `
+
+            <div class="weight-answer">
+
+                <p>
+                    Your Earth weight:
+                    <strong>
+                        ${data.earth_weight} kg
+                    </strong>
+                </p>
+
+
+                <p>
+                    Your weight on
+                    <strong>
+                        ${data.planet}
+                    </strong>:
+                </p>
+
+
+                <div class="big-result">
+
+                    ${data.planet_weight}
+                    kg
+
+                </div>
+
+            </div>
+
+        `;
+
+    }
+
+
+    catch (error) {
+
+        console.error(error);
+
+
+        result.innerHTML = `
+            Unable to connect to
+            the Python server.
+        `;
+
+    }
+
+}
+
+
+loadPlanets();
+
+async function calculateWeight() {
+
+    const input =
+        document.getElementById("weight");
+
+    const result =
+        document.getElementById("result");
+
+
+    const earthWeight =
+        parseFloat(input.value);
+
+
+    if (
+        isNaN(earthWeight) ||
+        earthWeight <= 0
+    ) {
+
+        result.innerHTML = `
+            <p>
+                Please enter a valid weight.
+            </p>
+        `;
+
+        return;
+    }
+
+
+    result.innerHTML = `
+        <p>
+            Calculating...
+        </p>
+    `;
+
+
+    try {
+
+        // Get all planets
+
+        const planetsResponse =
+            await fetch("/api/planets");
+
+
+        const planets =
+            await planetsResponse.json();
+
+
+        if (!planetsResponse.ok) {
+
+            result.innerHTML = `
+                Unable to load planet data.
+            `;
+
+            return;
+        }
+
+
+        // Calculate weight on every planet
+
+        const calculations =
+            await Promise.all(
+
+                planets.map(
+                    async function(planet) {
+
+                        const response =
+                            await fetch(
+                                "/api/calculate-weight",
+                                {
+                                    method: "POST",
+
+                                    headers: {
+                                        "Content-Type":
+                                            "application/json"
+                                    },
+
+                                    body:
+                                        JSON.stringify({
+                                            weight:
+                                                earthWeight,
+
+                                            planet:
+                                                planet.name
+                                        })
+                                }
+                            );
+
+
+                        return await response.json();
+
+                    }
+                )
+
+            );
+
+
+        result.innerHTML = `
+
+            <h4>
+                ⚖️ Your Weight Across the Solar System
+            </h4>
+
+
+            <div class="python-results">
+
+                ${calculations.map(
+                    function(data) {
+
+                        return `
+
+                            <div class="python-result">
+
+                                <strong>
+                                    ${data.planet}
+                                </strong>
+
+                                <span>
+                                    ${data.planet_weight}
+                                    kg
+                                </span>
+
+                            </div>
+
+                        `;
+
+                    }
+                ).join("")}
+
+            </div>
+
+        `;
+
+    }
+
+
+    catch (error) {
+
+        console.error(
+            "Python Lab error:",
+            error
+        );
+
+
+        result.innerHTML = `
+            <p>
+                Unable to connect to
+                the Python server.
+            </p>
+        `;
+
+    }
+
+}
+
+
+async function exploreSun() {
+
+    try {
+
+        const response =
+            await fetch("/api/sun");
+
+
+        const sun =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            console.error(
+                sun.error
+            );
+
+            return;
+
+        }
+
+
+        const section =
+            document.getElementById(
+                "sun-details"
+            );
+
+
+        section.innerHTML = `
+
+            <p class="small-title">
+                SUN EXPLORER
+            </p>
+
+            <h2>
+                ☀️ ${sun.name}
+            </h2>
+
+            <p>
+                ${sun.description}
+            </p>
+
+
+            <div class="sun-facts">
+
+
+                <div class="sun-fact">
+
+                    <strong>
+                        Mass
+                    </strong>
+
+                    <span>
+                        ${Number(sun.mass)
+                            .toExponential(3)}
+                        kg
+                    </span>
+
+                </div>
+
+
+                <div class="sun-fact">
+
+                    <strong>
+                        Radius
+                    </strong>
+
+                    <span>
+                        ${sun.radius.toLocaleString()}
+                        km
+                    </span>
+
+                </div>
+
+
+                <div class="sun-fact">
+
+                    <strong>
+                        Temperature
+                    </strong>
+
+                    <span>
+                        ${sun.temperature.toLocaleString()}
+                        K
+                    </span>
+
+                </div>
+
+
+                <div class="sun-fact">
+
+                    <strong>
+                        Age
+                    </strong>
+
+                    <span>
+                        ${sun.age}
+                        billion years
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        `;
+
+
+        section.scrollIntoView({
+
+            behavior: "smooth",
+
+            block: "center"
+
+        });
+
+    }
+
+
+    catch (error) {
+
+        console.error(
+            "Sun API error:",
+            error
+        );
+
+    }
+
+}
+
+async function exploreMoon() {
+
+    try {
+
+        const response = await fetch("/api/moon");
+
+        const moon = await response.json();
+
+        if (!response.ok) {
+
+            console.error(moon.error);
+
+            return;
+        }
+
+        const section =
+            document.getElementById("moon-details");
+
+
+        section.innerHTML = `
+
+            <p class="small-title">
+                MOON EXPLORER
+            </p>
+
+            <h2>
+                🌙 ${moon.name}
+            </h2>
+
+            <p>
+                ${moon.description}
+            </p>
+
+
+            <div class="sun-facts">
+
+                <div class="sun-fact">
+
+                    <strong>
+                        Mass
+                    </strong>
+
+                    <span>
+                        ${Number(moon.mass).toExponential(3)}
+                        kg
+                    </span>
+
+                </div>
+
+
+                <div class="sun-fact">
+
+                    <strong>
+                        Radius
+                    </strong>
+
+                    <span>
+                        ${moon.radius.toLocaleString()}
+                        km
+                    </span>
+
+                </div>
+
+
+                <div class="sun-fact">
+
+                    <strong>
+                        Gravity
+                    </strong>
+
+                    <span>
+                        ${moon.gravity}
+                        m/s²
+                    </span>
+
+                </div>
+
+
+                <div class="sun-fact">
+
+                    <strong>
+                        Orbital Period
+                    </strong>
+
+                    <span>
+                        ${moon.orbital_period}
+                        days
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="sun-facts">
+
+                <div class="sun-fact">
+
+                    <strong>
+                        Orbits
+                    </strong>
+
+                    <span>
+                        🌍 ${moon.planet.name}
+                    </span>
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        section.scrollIntoView({
+
+            behavior: "smooth",
+
+            block: "center"
+
+        });
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Moon API error:",
+            error
+        );
+
+    }
+
+}
+
+// ==========================================
+// PLANET COMPARISON
+// ==========================================
+
+function populatePlanetSelectors(planets) {
+
+    const planet1Select =
+        document.getElementById(
+            "planet1-select"
+        );
+
+    const planet2Select =
+        document.getElementById(
+            "planet2-select"
+        );
+
+
+    planets.forEach(function(planet) {
+
+        const option1 =
+            document.createElement("option");
+
+        option1.value = planet.name;
+
+        option1.textContent = planet.name;
+
+
+        const option2 =
+            document.createElement("option");
+
+        option2.value = planet.name;
+
+        option2.textContent = planet.name;
+
+
+        planet1Select.appendChild(
+            option1
+        );
+
+        planet2Select.appendChild(
+            option2
+        );
+
+    });
+
+}
+
+async function comparePlanets() {
+
+    const planet1 =
+        document.getElementById(
+            "planet1-select"
+        ).value;
+
+
+    const planet2 =
+        document.getElementById(
+            "planet2-select"
+        ).value;
+
+
+    const result =
+        document.getElementById(
+            "comparison-result"
+        );
+
+
+    if (!planet1 || !planet2) {
+
+        result.innerHTML = `
+            <p>
+                Please select two planets.
+            </p>
+        `;
+
+        return;
+    }
+
+
+    if (planet1 === planet2) {
+
+        result.innerHTML = `
+            <p>
+                Please select two different planets.
+            </p>
+        `;
+
+        return;
+    }
+
+
+    try {
+
+        const response = await fetch(
+            `/api/compare?planet1=${encodeURIComponent(planet1)}&planet2=${encodeURIComponent(planet2)}`
+        );
+
+
+        const data =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            result.innerHTML = `
+                <p>
+                    ${data.error}
+                </p>
+            `;
+
+            return;
+        }
+
+
+        result.innerHTML = `
+
+            <div class="comparison-cards">
+
+
+                <div class="comparison-card">
+
+                    <p class="small-title">
+                        PLANET 1
+                    </p>
+
+                    <h3>
+                        ${data.planet1.name}
+                    </h3>
+
+
+                    <div class="comparison-fact">
+
+                        <strong>
+                            Gravity
+                        </strong>
+
+                        <span>
+                            ${data.planet1.gravity}
+                            m/s²
+                        </span>
+
+                    </div>
+
+
+                    <div class="comparison-fact">
+
+                        <strong>
+                            Gravity Ratio
+                        </strong>
+
+                        <span>
+                            ${data.planet1.gravity_ratio}
+                            × Earth
+                        </span>
+
+                    </div>
+
+
+                    <div class="comparison-fact">
+
+                        <strong>
+                            Mass
+                        </strong>
+
+                        <span>
+                            ${Number(
+                                data.planet1.mass
+                            ).toExponential(3)}
+                            kg
+                        </span>
+
+                    </div>
+
+
+                    <div class="comparison-fact">
+
+                        <strong>
+                            Distance from Sun
+                        </strong>
+
+                        <span>
+                            ${data.planet1.distance_from_sun}
+                            million km
+                        </span>
+
+                    </div>
+
+
+                    <div class="comparison-fact">
+
+                        <strong>
+                            Moons
+                        </strong>
+
+                        <span>
+                            ${data.planet1.moons}
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="comparison-card">
+
+                    <p class="small-title">
+                        PLANET 2
+                    </p>
+
+                    <h3>
+                        ${data.planet2.name}
+                    </h3>
+
+
+                    <div class="comparison-fact">
+
+                        <strong>
+                            Gravity
+                        </strong>
+
+                        <span>
+                            ${data.planet2.gravity}
+                            m/s²
+                        </span>
+
+                    </div>
+
+
+                    <div class="comparison-fact">
+
+                        <strong>
+                            Gravity Ratio
+                        </strong>
+
+                        <span>
+                            ${data.planet2.gravity_ratio}
+                            × Earth
+                        </span>
+
+                    </div>
+
+
+                    <div class="comparison-fact">
+
+                        <strong>
+                            Mass
+                        </strong>
+
+                        <span>
+                            ${Number(
+                                data.planet2.mass
+                            ).toExponential(3)}
+                            kg
+                        </span>
+
+                    </div>
+
+
+                    <div class="comparison-fact">
+
+                        <strong>
+                            Distance from Sun
+                        </strong>
+
+                        <span>
+                            ${data.planet2.distance_from_sun}
+                            million km
+                        </span>
+
+                    </div>
+
+
+                    <div class="comparison-fact">
+
+                        <strong>
+                            Moons
+                        </strong>
+
+                        <span>
+                            ${data.planet2.moons}
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        result.scrollIntoView({
+
+            behavior: "smooth",
+
+            block: "center"
+
+        });
+
+    }
+
+
+    catch (error) {
+
+        console.error(
+            "Comparison error:",
+            error
+        );
+
+    }
+
+}
+
+// ==========================================
+// SEARCH PLANETS
+// ==========================================
+
+function searchPlanets() {
+
+    const searchInput =
+        document.getElementById(
+            "planet-search-input"
+        );
+
+    const searchText =
+        searchInput.value
+            .toLowerCase()
+            .trim();
+
+
+    const planetContainer =
+        document.getElementById(
+            "planet-container"
+        );
+
+
+    const planetElements =
+        planetContainer.children;
+
+
+    for (
+        let i = 0;
+        i < planetElements.length;
+        i++
+    ) {
+
+        const planetElement =
+            planetElements[i];
+
+
+        const planetName =
+            planetElement
+                .innerText
+                .toLowerCase();
+
+
+        if (
+            planetName.includes(
+                searchText
+            )
+        ) {
+
+            planetElement.style.display =
+                "";
+
+        } else {
+
+            planetElement.style.display =
+                "none";
+
+        }
+
+    }
+
+}
+
+function populateOOPSelector(planets) {
+
+    const select =
+        document.getElementById(
+            "oop-planet-select"
+        );
+
+
+    planets.forEach(function(planet) {
+
+        const option =
+            document.createElement(
+                "option"
+            );
+
+
+        option.value =
+            planet.name;
+
+
+        option.textContent =
+            planet.name;
+
+
+        select.appendChild(
+            option
+        );
+
+    });
+
+}
+
+async function explorePythonObject() {
+
+    const select =
+        document.getElementById(
+            "oop-planet-select"
+        );
+
+
+    const result =
+        document.getElementById(
+            "oop-result"
+        );
+
+
+    const planetName =
+        select.value;
+
+
+    if (!planetName) {
+
+        result.innerHTML = `
+            <p>
+                Please select a planet.
+            </p>
+        `;
+
+        return;
+    }
+
+
+    try {
+
+        const response =
+            await fetch(
+                `/api/planets/${encodeURIComponent(
+                    planetName
+                )}`
+            );
+
+
+        const planet =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            result.innerHTML = `
+                <p>
+                    ${planet.error}
+                </p>
+            `;
+
+            return;
+        }
+
+
+        result.innerHTML = `
+
+            <div class="oop-information">
+
+                <p class="small-title">
+                    PYTHON OBJECT
+                </p>
+
+
+                <h4>
+                    ${planet.name}
+                </h4>
+
+
+                <div class="oop-fact">
+
+                    <strong>
+                        Class
+                    </strong>
+
+                    <span>
+                        Planet
+                    </span>
+
+                </div>
+
+                <div class="oop-fact">
+
+    <strong>
+        Encapsulation
+    </strong>
+
+    <span>
+        🔐 Private gravity + controlled access
+    </span>
+
+</div>
+
+
+                <div class="oop-fact">
+
+                    <strong>
+                        Object
+                    </strong>
+
+                    <span>
+                        ${planet.name.toLowerCase()}
+                    </span>
+
+                </div>
+
+
+                <div class="oop-fact">
+
+                    <strong>
+                        Gravity
+                    </strong>
+
+                    <span>
+                        ${planet.gravity}
+                        m/s²
+                    </span>
+
+                </div>
+
+
+                <div class="oop-fact">
+
+                    <strong>
+                        Gravity Ratio
+                    </strong>
+
+                    <span>
+                        ${planet.gravity_ratio}
+                        × Earth
+                    </span>
+
+                </div>
+
+
+                <div class="oop-fact">
+
+                    <strong>
+                        Moons
+                    </strong>
+
+                    <span>
+                        ${planet.moons}
+                    </span>
+
+                </div>
+
+            </div>
+
+        `;
+
+    }
+
+
+    catch (error) {
+
+        console.error(
+            "Python OOP Explorer error:",
+            error
+        );
+
+
+        result.innerHTML = `
+            <p>
+                Unable to connect to
+                the Python server.
+            </p>
+        `;
+
+    }
+
+}
+
+// ==========================================
+// PYTHON POLYMORPHISM EXPLORER
+// ==========================================
+
+async function explorePolymorphism() {
+
+    const result =
+        document.getElementById(
+            "polymorphism-result"
+        );
+
+    result.innerHTML = `
+        <p>
+            Exploring polymorphism...
+        </p>
+    `;
+
+    try {
+
+        const response =
+            await fetch(
+                "/api/polymorphism"
+            );
+
+        const objects =
+            await response.json();
+
+        if (!response.ok) {
+
+            result.innerHTML = `
+                <p>
+                    Unable to load polymorphism data.
+                </p>
+            `;
+
+            return;
+        }
+
+        result.innerHTML = `
+
+            <div class="polymorphism-information">
+
+                <p class="small-title">
+                    SAME METHOD — DIFFERENT BEHAVIOUR
+                </p>
+
+                ${objects.map(
+                    function(obj) {
+
+                        return `
+
+                            <div class="oop-information">
+
+                                <h4>
+                                    ${obj.name}
+                                </h4>
+
+                                <div class="oop-fact">
+
+                                    <strong>
+                                        Class
+                                    </strong>
+
+                                    <span>
+                                        ${obj.class}
+                                    </span>
+
+                                </div>
+
+                                <div class="oop-fact">
+
+                                    <strong>
+                                        Method
+                                    </strong>
+
+                                    <span>
+                                        ${obj.method}
+                                    </span>
+
+                                </div>
+
+                                <div class="oop-fact">
+
+                                    <strong>
+                                        Behaviour
+                                    </strong>
+
+                                    <span>
+                                        ${obj.description}
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        `;
+
+                    }
+                ).join("")}
+
+                <div class="oop-takeaway">
+
+    <strong>
+        💡 Key Idea
+    </strong>
+
+    <p>
+        Polymorphism means one common method
+        can produce different behaviour
+        depending on the object.
+    </p>
+
+</div>
+
+            </div>
+
+        `;
+
+    }
+    catch (error) {
+
+        console.error(
+            "Polymorphism Explorer error:",
+            error
+        );
+
+        result.innerHTML = `
+            <p>
+                Unable to connect to
+                the Python server.
+            </p>
+
+            
+        `;
+
+    }
+
+}
+
+// ==========================================
+// PYTHON ABSTRACTION EXPLORER
+// ==========================================
+
+async function exploreAbstraction() {
+
+    const result =
+        document.getElementById(
+            "abstraction-result"
+        );
+
+    result.innerHTML = `
+        <p>
+            Exploring abstraction...
+        </p>
+    `;
+
+    try {
+
+        const response =
+            await fetch(
+                "/api/abstraction"
+            );
+
+        const data =
+            await response.json();
+
+        if (!response.ok) {
+
+            result.innerHTML = `
+                <p>
+                    Unable to load abstraction data.
+                </p>
+            `;
+
+            return;
+        }
+
+        result.innerHTML = `
+
+            <div class="oop-information">
+
+                <p class="small-title">
+                    ABSTRACT CLASS
+                </p>
+
+                <h4>
+                    ${data.abstract_class}
+                </h4>
+
+
+                <div class="oop-fact">
+
+                    <strong>
+                        Required Method
+                    </strong>
+
+                    <span>
+                        ${data.abstract_method}
+                    </span>
+
+                </div>
+
+
+                <div class="oop-fact">
+
+                    <strong>
+                        Planet
+                    </strong>
+
+                    <span>
+                        ${data.implementations[0].description}
+                    </span>
+
+                </div>
+
+
+                <div class="oop-fact">
+
+                    <strong>
+                        Moon
+                    </strong>
+
+                    <span>
+                        ${data.implementations[1].description}
+                    </span>
+
+                </div>
+
+
+                <div class="oop-takeaway">
+
+                    <strong>
+                        💡 Key Idea
+                    </strong>
+
+                    <p>
+                        ${data.key_idea}
+                    </p>
+
+                </div>
+
+            </div>
+
+        `;
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Abstraction Explorer error:",
+            error
+        );
+
+        result.innerHTML = `
+            <p>
+                Unable to connect to
+                the Python server.
+            </p>
+        `;
+
+    }
+
+}
+
+
+
+function populateOrbitalPlanetSelector(planets) {
+
+    const select =
+        document.getElementById(
+            "orbital-planet-select"
+        );
+
+    if (!select) {
+        return;
+    }
+
+    planets.forEach(function(planet) {
+
+        const option =
+            document.createElement("option");
+
+        option.value =
+            planet.name;
+
+        option.textContent =
+            planet.name;
+
+        select.appendChild(option);
+
+    });
+
+}
+
+// ==========================================
+// ORBITAL SPEED EXPLORER
+// ==========================================
+
+async function calculateOrbitalSpeed() {
+
+    const select =
+        document.getElementById(
+            "orbital-planet-select"
+        );
+
+    const result =
+        document.getElementById(
+            "orbital-speed-result"
+        );
+
+    const planetName =
+        select.value;
+
+    if (!planetName) {
+
+        result.innerHTML = `
+            <p>
+                Please select a planet.
+            </p>
+        `;
+
+        return;
+    }
+
+    result.innerHTML = `
+        <p>
+            Calculating orbital speed...
+        </p>
+    `;
+
+    try {
+
+        const response =
+            await fetch(
+                `/api/orbital-speed/${encodeURIComponent(
+                    planetName
+                )}`
+            );
+
+        const data =
+            await response.json();
+
+        if (!response.ok) {
+
+            result.innerHTML = `
+                <p>
+                    ${data.error}
+                </p>
+            `;
+
+            return;
+        }
+
+        result.innerHTML = `
+
+            <div class="oop-information">
+
+                <p class="small-title">
+                    ORBITAL SPEED
+                </p>
+
+                <h4>
+                    ${data.planet}
+                </h4>
+
+                <div class="oop-fact">
+
+                    <strong>
+                        Speed
+                    </strong>
+
+                    <span>
+                        ${data.orbital_speed_kmps}
+                        km/s
+                    </span>
+
+                </div>
+
+                <div class="oop-fact">
+
+                    <strong>
+                        Speed
+                    </strong>
+
+                    <span>
+                        ${data.orbital_speed_mps}
+                        m/s
+                    </span>
+
+                </div>
+
+                <div class="oop-takeaway">
+
+                    <strong>
+                        💡 Key Idea
+                    </strong>
+
+                    <p>
+                        This is the approximate speed
+                        at which ${data.planet}
+                        travels around the Sun.
+                    </p>
+
+                </div>
+
+            </div>
+
+        `;
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Orbital Speed Explorer error:",
+            error
+        );
+
+        result.innerHTML = `
+            <p>
+                Unable to connect to
+                the Python server.
+            </p>
+        `;
+
+    }
+
+}
+
+</script>
+
+<section
+    id="sun-details"
+    class="sun-details"
+>
+
+    <h2>
+        Explore the Sun
+    </h2>
+
+    <p>
+        Click the button above to discover
+        the Sun's physical properties.
+    </p>
+
+</section>
+
+<section id="moon-details" class="sun-details">
+    
+    <p class="small-title">
+        MOON EXPLORER
+    </p>
+
+    <h2>
+        🌙 Explore the Moon
+    </h2>
+
+    <p>
+        Click the button above to discover
+        information about Earth's Moon.
+    </p>
+
+</section>
+
+<!-- Footer -->
+
+<footer>
+
+    <h3>
+        ILM-AL-KAWN
+    </h3>
+
+    <p>
+        Exploring the Universe through Science & Code.
+    </p>
+
+    <p>
+        © 2026 ILM-AL-KAWN
+    </p>
+
+</footer>
+
+</body>
+
+</html>
